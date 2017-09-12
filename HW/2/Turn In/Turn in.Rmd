@@ -1,0 +1,44 @@
+---
+title: "HW #2"
+output: html_notebook
+---
+Loading the data
+
+```{r}
+df <- read.table("https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/39b78ff5c5c28981f009b54831d81649/asset-v1:GTx+ISYE6501x+2T2017+type@asset+block/credit_card_data-headers.txt", header = TRUE)
+
+head(df)
+```
+To compare multiple models, the data will be split into 3 sets: training (to fit the model), validation (to compare different models) and test (to compare between the best models evulated from the validation set). 
+
+The dataset will be split into these parts as such:
+
+**Training** - *60%*
+
+**Validation** - *20%*
+
+**Test** - *20*
+
+
+
+```{r}
+# Shuffling the rows of the dataframe to randomize before splitting
+df <- df[sample(nrow(df)),]
+
+#
+train_split_end_index <- round(nrow(df)*.6)
+
+test_split_start_index <- train_split_end_index + 1
+
+test_split_end_index <- round(nrow(df)*.8)
+
+validation_split_start_index <- test_split_end_index + 1
+
+validation_split_end_index <- nrow(df)
+
+print(c(train_split_end_index, test_split_start_index, test_split_end_index, validation_split_start_index, validation_split_end_index))
+
+print(c(nrow(df)*.6, nrow(df)*.2, nrow(df)*.2))
+
+```
+

@@ -1,0 +1,1 @@
+This was coded as an R notebook but edx doesn't allow those to be uploaded. If you download and change the file extension from .R to .Rmd it should revert back. File --> Knit Document for a nicely displayed HTML version of the code. If this doesn't work, the could should still run as a .R file. If all else fails, there is the PDF.
